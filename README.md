@@ -6,7 +6,7 @@
 
 Experimentation with Bayesian regression and different sampling methods: Rejection sampling, Importance sampling, Metropolis-Hastings, and No-U-Turn Sampler (this one is from [pymc-devs/nuts-rs](https://github.com/pymc-devs/nuts-rs)).
 
-See [notebooks/something.ipynb] for a demo.
+See [notebooks/something.ipynb](notebooks/something.ipynb) for a demo.
 
 ## License
 
