@@ -1,0 +1,25 @@
+[package]
+name = "regression"
+version = "0.1.0"
+repository.workspace = true
+license.workspace = true
+publish.workspace = true
+readme = "../../README.md"
+edition.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "regression"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.19.0"
+nuts-rs = "0"
+bayesian-regression-101-core = { path = "../core" }
+
+[dev-dependencies]
+rand = "0.8.4"
+rand_distr = "0.4.2"
+rand_chacha = "0.3.0"

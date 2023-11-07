@@ -1,0 +1,25 @@
+name: base
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - scipy
+  - pandas
+  - polars
+  - pyarrow
+  - seaborn
+  - arviz
+  - numpyro  
+  - ipykernel
+  - ipywidgets
+  - statsmodels
+  - maturin
+  - nbformat
+  - pymc  
+  - pydantic
+  - scipy
+  - requests
+  - papermill
+  - pip
+  - pip:    
+    - pymc_experimental

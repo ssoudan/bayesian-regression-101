@@ -1,0 +1,92 @@
+name: CI # Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+
+  test:
+    name: Test Suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Install just
+        uses: taiki-e/install-action@just
+      - uses: Swatinem/rust-cache@v2
+      - name: Run tests
+        run: just test
+
+  rustfmt:
+    name: Rustfmt
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rustfmt
+      - name: Install just
+        uses: taiki-e/install-action@just
+      - uses: Swatinem/rust-cache@v2
+      - name: Check formatting
+        run: just fmt
+
+  clippy:
+    name: Clippy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: clippy
+      - name: Install just
+        uses: taiki-e/install-action@just
+      - name: Install cargo-all-features
+        run: cargo install cargo-all-features
+      - uses: Swatinem/rust-cache@v2
+      - name: Check
+        run: just check
+      - name: Check all features
+        run: cargo check-all-features --workspace
+      - name: Clippy check
+        run: just clippy      
+
+  deny:
+    name: Deny
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        - name: Install just
+        uses: taiki-e/install-action@just
+      - name: Install cargo-deny
+        run: cargo install cargo-deny
+      - uses: Swatinem/rust-cache@v2
+      - name: Check
+        run: just deny
+
+  docs:
+    name: Docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Install just
+        uses: taiki-e/install-action@just
+      - uses: Swatinem/rust-cache@v2
+      - name: Check documentation
+        run: just doc
+

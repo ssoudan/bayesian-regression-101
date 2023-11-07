@@ -1,0 +1,17 @@
+[workspace]
+members = ["crates/*"]     
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+description = "Bayesian regression from scratch"
+authors = [ "Sebastien Soudan <sebastien.soudan@gmail.com>" ]
+repository = "https://github.com/ssoudan/bayesian-regression-101"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+publish = false
+
+keywords = []
+categories = []
+

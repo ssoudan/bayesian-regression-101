@@ -1,0 +1,21 @@
+[package]
+name = "bayesian-regression-101-core"
+version = "0.1.0"
+description = "Bayesian regression from scratch - core"
+repository.workspace = true
+license.workspace = true
+publish.workspace = true
+readme = "../../README.md"
+edition.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[features]
+default = []
+# unstable API - may change in future versions
+unstable = []
+
+[dependencies]
+nuts-rs = "*"
+log = "*"
+rand = "0.8.4"
