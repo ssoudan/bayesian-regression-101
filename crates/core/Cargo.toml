@@ -18,4 +18,4 @@ unstable = []
 [dependencies]
 nuts-rs = "*"
 log = "*"
-rand = "0.8.4"
+rand = "0.8.5"
